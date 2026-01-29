@@ -1,615 +1,1406 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js" >
+<html lang="en" class="no-js">
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Anshad</title>
+    <title>Mohammed Anshad K - Flutter Developer</title>
 
     <script>
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
     </script>
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- favicons
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #0ea5e9;
+            --accent-color: #8b5cf6;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --card-bg: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+      /* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 2rem 4rem;
+    background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: var(--gradient-1);
+    opacity: 0.05;
+    border-radius: 0 0 0 100%;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.hero-content .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+.hero-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.hero-image-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+    opacity: 0.2;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+    border: 10px solid white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+        /* About Section */
+        .about-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-pretitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateX(10px);
+        }
+
+        .highlight-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-text h4 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-text p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .skill-icon-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .skill-icon-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .skill-icon-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .skill-icon-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+
+        .skill-header h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .skill-percentage {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 1rem 0;
+        }
+
+        .project-description {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .project-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .feature-text {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .project-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .tech-tag {
+            padding: 0.5rem 1rem;
+            background: var(--light-bg);
+            color: var(--text-dark);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 2rem;
+            background: var(--dark-bg);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-section .section-pretitle {
+            color: var(--secondary-color);
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-section .section-description {
+            color: #94a3b8;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.25rem;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image-wrapper {
+                width: 300px;
+                height: 300px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+    </style>
 </head>
 
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">Anshad.dev</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-button">Let's Connect</a>
+        </div>
+    </header>
 
-<body id="top">
+  <!-- Hero Section -->
+<section class="hero fade-in">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>
+                Hi, I'm <span class="gradient-text">Mohammed Anshad K</span>
+            </h1>
+            <p class="hero-subtitle">
+                Result-driven Flutter Developer with 2+ years of experience crafting high-performance, 
+                cross-platform mobile applications that delight users and drive business success.
+            </p>
+            <a href="#projects" class="cta-button">View My Work</a>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Apps Deployed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Active Users</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label">Crash-Free Rate</span>
+                </div>
+            </div>
+        </div>
 
-    
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader" class="dots-fade">
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="hero-image">
+            <div class="hero-image-wrapper">
+                <img src="images/a22e0d50-9797-441f-9ca0-3e82b0a6b32d.jpg" alt="Mohammed Anshad K">
+            </div>
         </div>
     </div>
-
-
-    <!-- page wrap
-    ================================================== -->
-    <div id="page" class="s-pagewrap ss-home">
-
-
-        <!-- # site header 
-        ================================================== -->
-        <header class="s-header">
-
-            <div class="row s-header__inner width-sixteen-col">
-
-                <div class="s-header__block">
-                    <div class="s-header__logo">
-                        <a class="logo" href="index.html">
-                            <img src="images/A (1).png" alt="Homepage">
-                        </a>
-                    </div>
-
-                    <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
-                </div> <!-- end s-header__block -->
-
-                <nav class="s-header__nav">
-    
-                    <ul class="s-header__menu-links">
-                        <li><a href="about.html">About</a></li>
-                       
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul> <!-- s-header__menu-links -->
-
-                    <div class="s-header__contact">
-                        <a href="contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>                        
-                    </div> <!-- s-header__contact -->
-    
-                </nav> <!-- end s-header__nav -->
-
-            </div> <!-- end s-header__inner -->
-
-        </header> <!-- end s-header -->
-
-
-        <!-- # site main content
-        ================================================== -->
-        <section id="content" class="s-content">
-
-            <!-- intro
-            ----------------------------------------------- -->
-            <section id="intro" class="s-intro">
-
-                <div class="row s-intro__content width-sixteen-col">
-
-                    <div class="column lg-12 s-intro__content-inner grid-block">
-                        
-                        <div class="s-intro__content-text">
-                            <div class="s-intro__content-pretitle text-pretitle">Hello, I'm Mohammed Anshad</div>
-                            <h1 class="s-intro__content-title">
-                                Enthusiastic Flutter Developer skilled in mobile app development <br>
-                        
-                            </h1>
-                        </div> <!-- s-intro__content-text -->
-
-                        <div class="s-intro__content-media"> 
-                            <div class="s-intro__content-media-inner">                               
-                                <img src="images/anshad.jpg" srcset="images/anshad.jpg 1x, images/anshad.jpg 2x" alt="">
-                                <div class="lines">                               
-                                    <span></span>                                  
-                                </div>
-                            </div>
-                        </div> <!-- s-intro__content-media -->                      
-
-                        <div class="s-intro__scroll-down">
-                            <a href="#about" class="smoothscroll">
-                                <div class="scroll-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#97b34a" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">&lt;!--!  Atomicons Free 1.00 by @atisalab License - https://atomicons.com/license/ (Icons: CC BY 4.0) Copyright 2021 Atomicons --&gt;<polyline points="7 13 12 18 17 13"></polyline><line x1="12" y1="18" x2="12" y2="6"></line></svg>
-                                </div>
-                                <span>Scroll for more</span>
-                            </a>
-                        </div> <!-- s-intro__scroll-down -->
-                        
-                    </div> <!-- s-intro__content-inner -->
-
-                </div> <!-- s-intro__content -->
-
-            </section> <!-- end s-intro -->
-
-            <!-- about
-            ----------------------------------------------- -->
-            <section id="about" class="s-about target-section">
-                <div class="row s-about__content width-sixteen-col">
-                    <div class="column grid-block grid-section-split">
-                        <img src="images/geometric_shape.svg" alt="" class="s-about__content-imgbg">
-                        <div class="section-header grid-section-split__header">
-                            <div class="text-pretitle">About</div>                           
-                            <h2 class="text-display-title">
-                                Crafting High-Performance Mobile Experiences
-                            </h2>                           
-                        </div> <!-- end section-header -->
-            
-                        <div class="s-about__content-main grid-section-split__primary">
-                            <p class="attention-getter">
-                                I am  a passionate Flutter Developer with a strong foundation in mobile app development and UI/UX design. Skilled at creating high-performance applications that enhance user experience,excels at responsive design and seamless feature integration for both iOS and Android.
-                            </p>
-            
-                            <p class="attention-getter">
-                                With a background in developing Management Information System (MIS) applications and a commitment to ongoing learning, brings innovation and functionality to every project.dedicated to building visually compelling and functional mobile apps that transform ideas into impactful solutions.
-                            </p>
-                        </div> <!-- end s-about__content-main -->
-            
-                        <div class="s-about__content-btn grid-section-split__bottom">
-                            <a href="about.html" class="btn btn--stroke u-fullwidth">More About Me</a>
-                            <ul class="s-about__social social-list">
-                                <li><a href="https://www.linkedin.com/in/mohammedanshad"><span class="u-screen-reader-text">LinkedIn</span></a></li>
-                                <!-- Add additional social media links as needed -->
-                            </ul> <!-- end s-footer__social -->
-                        </div> <!-- end s-about__content-btn -->
-                    </div> <!-- content-inner -->
-                </div>
-            </section> <!-- end s-about -->
-            
-
-            <!-- expertise
-         <section id="expertise" class="s-expertise">
-    <div class="row s-expertise__content width-sixteen-col">
-        <div class="column xl-12 grid-block grid-section-split">
-            <div class="section-header grid-section-split__header">
-                <div class="text-pretitle">Expertise</div>                           
-                <h2 class="text-display-title">
-                    My key areas of expertise.
-                </h2>     
-                <p class="lead">
-                    With a focus on creating high-performance, user-friendly mobile applications, I bring together technical skills and design acumen to deliver impactful digital solutions.
+</section>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-pretitle">About Me</div>
+                <h2 class="section-title">Crafting Mobile Experiences That Matter</h2>
+                <p class="section-description">
+                    Passionate about transforming ideas into impactful mobile solutions
                 </p>
-            </div> <!-- end section-header -->
+            </div>
 
-            <style>
-                /* General Styles */
-                .s-expertise__content-main {
-                    padding: 2rem; /* Add padding for spacing */
-                    background-color: #f9f9f9; /* Subtle background color */
-                    border-radius: 10px; /* Rounded corners */
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
-                }
-            
-                .grid-list-items {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-                    gap: 1.5rem; /* Spacing between items */
-                }
-            
-                .list-items__item {
-                    padding: 1.5rem;
-                    background: #ffffff;
-                    border: 1px solid #e0e0e0;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-                    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
-                }
-            
-                .list-items__item:hover {
-                    transform: translateX(10px); /* Slight movement on hover */
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-                }
-            
-                .list-items__item-title {
-                    font-family: var(--font-2);
-                    font-size: 1.8rem;
-                    font-weight: 600;
-                    margin-bottom: 0.5rem;
-                    color: #343a40;
-                }
-            
-                .list-items__item-text p {
-                    font-family: var(--font-1);
-                    font-size: 1rem;
-                    line-height: 1.6;
-                    color: #555555;
-                }
-            
-                /* Responsive Design */
-                @media (max-width: 768px) {
-                    .s-expertise__content-main {
-                        padding: 1rem;
-                    }
-            
-                    .list-items__item {
-                        padding: 1rem;
-                    }
-                }
-            </style>
-            
-            <div class="s-expertise__content-main grid-section-split__primary">
-                <div class="grid-list-items list-items show-ctr">
-                    <div class="grid-list-items__item list-items__item">
-                        <div class="grid-list-items__title list-items__item-header">
-                            <h3 class="list-items__item-title">Mobile App Development</h3>
-                        </div>
-                        <div class="grid-list-items__text list-items__item-text">
-                            <p>
-                                Skilled in building responsive and high-performance mobile applications for both iOS and Android using Flutter. My projects emphasize seamless functionality, efficient state management, and an engaging user experience.
-                            </p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate Flutter Developer with a strong foundation in mobile app development 
+                        and UI/UX design. I specialize in creating high-performance, cross-platform applications 
+                        that enhance user experience through responsive design and seamless feature integration 
+                        for both iOS and Android platforms.
+                    </p>
+                    <p>
+                        With expertise in developing Management Information System (MIS) applications and a 
+                        commitment to continuous learning, I bring innovation and functionality to every project. 
+                        I'm dedicated to building visually compelling and functional mobile apps that transform 
+                        ideas into impactful solutions.
+                    </p>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">📱</div>
+                        <div class="highlight-text">
+                            <h4>Cross-Platform Expert</h4>
+                            <p>Building seamless experiences for iOS & Android</p>
                         </div>
                     </div>
-            
-                    <div class="grid-list-items__item list-items__item">
-                        <div class="grid-list-items__title list-items__item-header">
-                            <h3 class="list-items__item-title">UI/UX Design</h3>
-                        </div>
-                        <div class="grid-list-items__text list-items__item-text">
-                            <p>
-                                Proficient in UI/UX design with Figma, creating visually appealing and user-centric interfaces. My designs focus on enhancing usability and providing a smooth, intuitive experience across different devices.
-                            </p>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🎨</div>
+                        <div class="highlight-text">
+                            <h4>UI/UX Focused</h4>
+                            <p>Creating intuitive and beautiful interfaces</p>
                         </div>
                     </div>
-            
-                    <div class="grid-list-items__item list-items__item">
-                        <div class="grid-list-items__title list-items__item-header">
-                            <h3 class="list-items__item-title">SQL Database Management</h3>
-                        </div>
-                        <div class="grid-list-items__text list-items__item-text">
-                            <p>
-                                Experienced in SQL database management, ensuring structured and optimized data storage solutions for mobile applications. Skilled in setting up, managing, and querying databases to support app functionality and data integrity.
-                            </p>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">⚡</div>
+                        <div class="highlight-text">
+                            <h4>Performance Driven</h4>
+                            <p>Optimizing for speed and reliability</p>
                         </div>
                     </div>
-            
-                    <div class="grid-list-items__item list-items__item">
-                        <div class="grid-list-items__title list-items__item-header">
-                            <h3 class="list-items__item-title">Firebase Integration</h3>
-                        </div>
-                        <div class="grid-list-items__text list-items__item-text">
-                            <p>
-                                Expertise in Firebase for backend support, including user authentication, real-time data syncing, and database management. I leverage Firebase to deliver secure, real-time functionality and a scalable backend for mobile applications.
-                            </p>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🚀</div>
+                        <div class="highlight-text">
+                            <h4>Scalable Solutions</h4>
+                            <p>Architecting for growth and maintainability</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="s-expertise__content-btn grid-section-split__bottom">
-                <div class="btn btn--stroke u-fullwidth" style=" 
-                    background: linear-gradient(to right, #2196f3, #42a5f5); 
-                    color: white; 
-                    padding: 1rem 2rem; 
-                    font-size: 1.2rem; 
-                    border: none; 
-                    border-radius: 8px; 
-                    text-transform: uppercase; 
-                    font-weight: bold; 
-                    text-align: center; 
-                    transition: transform 0.3s, background 0.3s;">
-                    View All Services
-                </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-pretitle">Professional Expertise</div>
+                <h2 class="section-title">Technical Skills & Tools</h2>
+                <p class="section-description">
+                    Specialized in cross-platform mobile development with a focus on creating robust, scalable applications
+                </p>
             </div>
-            
-            
-            <!-- clients
-            ----------------------------------------------- -->
-            <section class="s-skills" style="padding: 4rem 0; background: #fafafa;">
-                <div class="row width-sixteen-col">
-                    <div class="column xl-12 grid-block grid-section-split">
-                        <div class="section-header grid-section-split__header" style="text-align: center; margin-bottom: 3rem;">
-                            <div class="text-pretitle" style="color: #2196f3; font-weight: 500; margin-bottom: 0.5rem;">Professional Expertise</div>
-                            <h2 class="text-display-title" style="font-size: 2.5rem; margin-bottom: 1rem;">
-                                Technical Skills & Tools
-                            </h2>
-                            <p style="color: #666; max-width: 600px; margin: 0 auto;">
-                                Specialized in cross-platform mobile development with a focus on creating robust, scalable applications
-                            </p>
+
+            <div class="skills-grid">
+                <!-- Mobile Development Card -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon skill-icon-1">📱</div>
+                        <h3>Mobile Development</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Flutter & Dart</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
                         </div>
-                        
-                        <div class="grid-section-split__primary">
-                            <div class="skills-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; padding: 1rem;">
-                                
-                                <!-- Mobile Development -->
-                                <div class="skill-category" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                                        <img src="images/fluttwe.jpg" alt="Mobile Development" style="width: 48px; height: 48px; margin-right: 1rem;" />
-                                        <h3 style="color: #333; margin: 0; font-size: 1.3rem;">Mobile Development</h3>
-                                    </div>
-                                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
-                                        <div style="margin-bottom: 1rem;">
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                                <span style="color: #555;">Flutter & Dart</span>
-                                                <span style="color: #2196f3;">95%</span>
-                                            </div>
-                                            <div style="background: #e0e0e0; height: 6px; border-radius: 3px;">
-                                                <div style="width: 95%; background: #2196f3; height: 100%; border-radius: 3px;"></div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-bottom: 1rem;">
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                                <span style="color: #555;">Provider & GetX</span>
-                                                <span style="color: #2196f3;">90%</span>
-                                            </div>
-                                            <div style="background: #e0e0e0; height: 6px; border-radius: 3px;">
-                                                <div style="width: 90%; background: #2196f3; height: 100%; border-radius: 3px;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-            
-                                <!-- Backend & Database -->
-                                <div class="skill-category" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                                        <img src="images/firebase.jpg" alt="Backend Development" style="width: 48px; height: 48px; margin-right: 1rem;" />
-                                        <h3 style="color: #333; margin: 0; font-size: 1.3rem;">Backend & Database</h3>
-                                    </div>
-                                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
-                                        <div style="margin-bottom: 1rem;">
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                                <span style="color: #555;">Firebase</span>
-                                                <span style="color: #2196f3;">88%</span>
-                                            </div>
-                                            <div style="background: #e0e0e0; height: 6px; border-radius: 3px;">
-                                                <div style="width: 88%; background: #2196f3; height: 100%; border-radius: 3px;"></div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-bottom: 1rem;">
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                                <span style="color: #555;">.NET Core & SQL</span>
-                                                <span style="color: #2196f3;">85%</span>
-                                            </div>
-                                            <div style="background: #e0e0e0; height: 6px; border-radius: 3px;">
-                                                <div style="width: 85%; background: #2196f3; height: 100%; border-radius: 3px;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-            
-                                <!-- Development Tools -->
-                                <div class="skill-category" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                                        <img src="images/appstore.jpg" alt="Development Tools" style="width: 48px; height: 48px; margin-right: 1rem;" />
-                                        <h3 style="color: #333; margin: 0; font-size: 1.3rem;">Development Tools</h3>
-                                    </div>
-                                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
-                                        <div style="margin-bottom: 1rem;">
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                                <span style="color: #555;">Git & GitHub</span>
-                                                <span style="color: #2196f3;">92%</span>
-                                            </div>
-                                            <div style="background: #e0e0e0; height: 6px; border-radius: 3px;">
-                                                <div style="width: 92%; background: #2196f3; height: 100%; border-radius: 3px;"></div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-bottom: 1rem;">
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                                <span style="color: #555;">App Store & Play Store</span>
-                                                <span style="color: #2196f3;">85%</span>
-                                            </div>
-                                            <div style="background: #e0e0e0; height: 6px; border-radius: 3px;">
-                                                <div style="width: 85%; background: #2196f3; height: 100%; border-radius: 3px;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-            
-                                <!-- Design & UI/UX -->
-                                <div class="skill-category" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                                        <img src="images/figma.jpg" alt="Design" style="width: 48px; height: 48px; margin-right: 1rem;" />
-                                        <h3 style="color: #333; margin: 0; font-size: 1.3rem;">Design & UI/UX</h3>
-                                    </div>
-                                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
-                                        <div style="margin-bottom: 1rem;">
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                                <span style="color: #555;">Figma</span>
-                                                <span style="color: #2196f3;">85%</span>
-                                            </div>
-                                            <div style="background: #e0e0e0; height: 6px; border-radius: 3px;">
-                                                <div style="width: 85%; background: #2196f3; height: 100%; border-radius: 3px;"></div>
-                                            </div>
-                                        </div>
-                                        <div style="margin-bottom: 1rem;">
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                                <span style="color: #555;">UI/UX Design</span>
-                                                <span style="color: #2196f3;">80%</span>
-                                            </div>
-                                            <div style="background: #e0e0e0; height: 6px; border-radius: 3px;">
-                                                <div style="width: 80%; background: #2196f3; height: 100%; border-radius: 3px;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-            
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Provider & GetX</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">RESTful APIs</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
-        <!-- # cta
-        ================================================== -->
-       
-<!-- # journal
-================================================== -->
-<section id="journal" class="s-journal">
-    <div class="row s-journal__content width-sixteen-col">
-        <div class="column xl-12 grid-block">
-            <div class="grid-full section-header text-center">
-                <div class="text-pretitle">Recent Works</div>                           
-                <h2 class="text-display-title">
-                    Latest Work from my Career
-                </h2>  
+                <!-- Backend & Database Card -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon skill-icon-2">🔥</div>
+                        <h3>Backend & Database</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Firebase</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL & SQFLite</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Hive Database</span>
+                                <span class="skill-percentage">87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 87%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Tools Card -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon skill-icon-3">🛠️</div>
+                        <h3>Development Tools</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">App Store Deployment</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Agile/Scrum</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design & UI/UX Card -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon skill-icon-4">🎨</div>
+                        <h3>Design & UI/UX</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Figma</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">UI/UX Design</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Responsive Design</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-pretitle">Portfolio</div>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    Showcasing impactful mobile applications built with cutting-edge technology
+                </p>
             </div>
 
-            <div class="grid-full s-journal__content-main grid-list-items">
-
-                <!-- Thai Vision -->
-                <div class="grid-list-items__item blog-card">
-                    <div class="blog-card__header">
-                        <div class="blog-card__cat-links">
-                            <a href="#thai-vision">Project</a>
-                        </div>
-                        <h3 class="blog-card__title">
-                            <a href="#thai-vision">Thai Vision: Business Management Application</a>
-                        </h3>
-                    </div>
-                    <div class="blog-card__text">
-                        <p>
-                            Thai Vision is a Flutter-based business management application designed to streamline
-                            sales and operational activities. It includes features such as salesman activity
-                            tracking, attendance management, location tracking, stock management, and admin
-                            dashboards for monitoring overall business performance.
-                        </p>
-                    </div>
-                </div>
-
+            <div class="projects-grid">
                 <!-- Faaida App -->
-                <div class="grid-list-items__item blog-card">
-                    <div class="blog-card__header">
-                        <div class="blog-card__cat-links">
-                            <a href="#faaida">Project</a>
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-badge">Production App</span>
+                                <h3 class="project-title">Faaida: In Every Swipe</h3>
+                            </div>
                         </div>
-                        <h3 class="blog-card__title">
-                            <a href="#faaida">Faaida: In Every Swipe</a>
-                        </h3>
-                    </div>
-                    <div class="blog-card__text">
-                        <p>
-                            Faaida is a Flutter application developed to display offers, flyers, and product
-                            listings from supermarkets and local shops. The app helps users discover nearby
-                            deals easily while enabling businesses to promote their products effectively.
+                        <p class="project-description">
+                            A comprehensive Flutter application designed to display offers, flyers, and product listings 
+                            from supermarkets and local shops. Helps users discover nearby deals while enabling businesses 
+                            to promote their products effectively.
                         </p>
-                    </div>
-                </div>
-
-                <!-- Strike User App -->
-                <div class="grid-list-items__item blog-card">
-                    <div class="blog-card__header">
-                        <div class="blog-card__cat-links">
-                            <a href="#strike-user">Project</a>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Multi-region support with guest/login modes</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Firebase push notifications and deep linking for promotions</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Interactive reels-style video features for product showcasing</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Centralized offers and partner product listings</span>
+                            </div>
                         </div>
-                        <h3 class="blog-card__title">
-                            <a href="#strike-user">Strike User App: Bowling & Venue Booking</a>
-                        </h3>
-                    </div>
-                    <div class="blog-card__text">
-                        <p>
-                            Strike User App is a customer-facing Flutter application used for booking bowling
-                            games at venues. Users can view available slots, host matches, make payments, and
-                            manage bookings with real-time venue availability and smooth slot-based scheduling.
-                        </p>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Push Notifications</span>
+                            <span class="tech-tag">Deep Linking</span>
+                            <span class="tech-tag">Video Integration</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Strike Partner App -->
-                <div class="grid-list-items__item blog-card">
-                    <div class="blog-card__header">
-                        <div class="blog-card__cat-links">
-                            <a href="#strike-partner">Project</a>
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-badge">Venue Manager App</span>
+                                <h3 class="project-title">Strike Partner App: Venue Management System</h3>
+                            </div>
                         </div>
-                        <h3 class="blog-card__title">
-                            <a href="#strike-partner">Strike Partner App: Venue Management System</a>
-                        </h3>
-                    </div>
-                    <div class="blog-card__text">
-                        <p>
-                            Strike Partner App is built for venue partners to manage bookings efficiently.
-                            Partners can approve or reject bookings, update match scores for users, manage
-                            holidays and reservations, create promotional banners, and add featured venues
-                            through an integrated management dashboard.
+                        <p class="project-description">
+                            A robust venue management system built for bowling venue partners to efficiently manage 
+                            bookings, schedules, and promotional activities through an integrated management dashboard.
                         </p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Time-slot creation and booking approval/rejection system</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Match score updates and live score management</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Holiday and block slot configuration</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Promotional banner creation and featured venue management</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Real-time Firebase notifications for bookings and match updates</span>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Real-time Updates</span>
+                            <span class="tech-tag">Admin Dashboard</span>
+                            <span class="tech-tag">Analytics</span>
+                        </div>
                     </div>
                 </div>
 
-            </div> <!-- end grid-list-items -->
-        </div>
-    </div>
-</section>
-<!-- end s-journal -->
-
-        <!-- # footer 
-        ================================================== -->
-        <footer class="s-footer">
-            <div class="row s-footer__content">
-                <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">                    
-                    <h3>About Me</h3>
-                    <p>
-                        I am Mohammed Anshad K, a dedicated Flutter Developer with a passion for creating cross-platform mobile applications. My expertise includes Flutter, Dart, SQL Server Management, UI/UX design, and more. I have experience in integrating RESTful APIs, Firebase, and third-party libraries to deliver robust and efficient applications. My goal is to leverage my skills to contribute to innovative projects and continuously enhance my development capabilities.
-                    </p>               
-                </div>                
-                <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
-                    <h3>Site Links</h3>
-                    <ul class="link-list">
-                        <li><a href="index.html">Home</a></li>
-                        
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="https://www.dreamhost.com/r.cgi?287326">DreamHost</a></li>
-                    </ul>
-                </div>
-            </div>    
-            
-            <div class="row s-footer__bottom">
-                <div class="column xl-6 lg-12">
-                    <ul class="s-footer__social social-list">
-                        <li>
-                            <a href="https://www.facebook.com/Anshad K">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M20,3H4C3.447,3,3,3.448,3,4v16c0,0.552,0.447,1,1,1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325,1.42-3.592,3.5-3.592 c0.699-0.002,1.399,0.034,2.095,0.107v2.42h-1.435c-1.128,0-1.348,0.538-1.348,1.325v1.735h2.697l-0.35,2.725h-2.348V21H20 c0.553,0,1-0.448,1-1V4C21,3.448,20.553,3,20,3z"></path></svg>
-                                <span class="u-screen-reader-text">Facebook</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/anshad916">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M19.633,7.997c0.013,0.175,0.013,0.349,0.013,0.523c0,5.325-4.053,11.461-11.46,11.461c-2.282,0-4.402-0.661-6.186-1.809 c0.324,0.037,0.636,0.05,0.973,0.05c1.883,0,3.616-0.636,5.001-1.721c-1.771-0.037-3.255-1.197-3.767-2.793 c0.249,0.037,0.499,0.062,0.761,0.062c0.361,0,0.724-0.05,1.061-0.137c-1.847-0.374-3.23-1.995-3.23-3.953v-0.05 c0.537,0.299,1.16,0.486,1.82,0.511C3.534,9.419,2.823,8.184,2.823,6.787c0-0.748,0.199-1.434,0.548-2.032 c1.983,2.443,4.964,4.04,8.306,4.215c-0.062-0.3-0.1-0.611-0.1-0.923c0-2.22,1.796-4.028,4.028-4.028 c1.16,0,2.207,0.486,2.943,1.272c0.91-0.175,1.782-0.512,2.556-0.973c-0.299,0.935-0.936,1.721-1.771,2.22 c0.811-0.088,1.597-0.312,2.319-0.624C21.104,6.712,20.419,7.423,19.633,7.997z"></path></svg>
-                                <span class="u-screen-reader-text">Twitter</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/___anshad___/">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M11.999,7.377c-2.554,0-4.623,2.07-4.623,4.623c0,2.554,2.069,4.624,4.623,4.624c2.552,0,4.623-2.07,4.623-4.624 C16.622,9.447,14.551,7.377,11.999,7.377L11.999,7.377z M11.999,15.004c-1.659,0-3.004-1.345-3.004-3.003 c0-1.659,1.345-3.003,3.004-3.003s3.002,1.344,3.002,3.003C15.001,13.659,13.658,15.004,11.999,15.004L11.999,15.004z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533,6.111c-0.469-1.209-1.424-2.165-2.633-2.632c-0.699-0.263-1.438-0.404-2.186-0.42 c-0.963-0.042-1.268-0.054-3.71-0.054s-2.755,0-3.71,0.054C7.548,3.074,6.809,3.215,6.11,3.479C4.9,3.946,3.945,4.902,3.477,6.111 c-0.263,0.7-0.404,1.438-0.419,2.186c-0.043,0.962-0.056,1.267-0.056,3.71c0,2.442,0,2.753,0.056,3.71 c0.015,0.748,0.156,1.486,0.419,2.187c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45 c0.963,0.042,1.268,0.055,3.71,0.055s2.755,0,3.71-0.055c0.747-0.015,1.486-0.157,2.186-0.419c1.209-0.469,2.164-1.424,2.633-2.633 c0.263-0.7,0.404-1.438,0.419-2.186c0.043-0.962,0.056-1.267,0.056-3.71s0-2.753-0.056-3.71C20.941,7.57,20.801,6.819,20.533,6.111z M19.315,15.643c-0.007,0.576-0.111,1.147-0.311,1.688c-0.305,0.787-0.926,1.409-1.712,1.711c-0.535,0.199-1.099,0.303-1.67,0.311 c-0.95,0.044-1.218,0.055-3.654,0.055c-2.438,0-2.687,0-3.655-0.055c-0.569-0.007-1.135-0.112-1.669-0.311 c-0.789-0.301-1.414-0.923-1.719-1.711c-0.196-0.534-0.302-1.099-0.311-1.669c-0.043-0.95-0.053-1.218-0.053-3.654 c0-2.437,0-2.686,0.053-3.655c0.007-0.576,0.111-1.146,0.311-1.687c0.305-0.789,0.93-1.41,1.719-1.712 c0.534-0.198,1.1-0.303,1.669-0.311c0.951-0.043,1.218-0.055,3.655-0.055c2.437,0,2.687,0,3.654,0.055 c0.571,0.007,1.135,0.112,1.67,0.311c0.786,0.303,1.407,0.925,1.712,1.712c0.196,0.534,0.302,1.099,0.311,1.669 c0.043,0.951,0.054,1.218,0.054,3.655c0,2.436,0,2.698-0.043,3.654H19.315z"></path></svg>
-                                <span class="u-screen-reader-text">Instagram</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M20.66 6.98a9.932 9.932 0 0 0-3.641-3.64C15.486 2.447 13.813 2 12 2s-3.486.447-5.02 1.34c-1.533.893-2.747 2.107-3.64 3.64S2 10.187 2 12s.446 3.487 1.34 5.02a9.924 9.924 0 0 0 3.641 3.64C8.514 21.553 10.187 22 12 22s3.486-.447 5.02-1.34a9.932 9.932 0 0 0 3.641-3.64C21.554 15.487 22 13.813 22 12s-.446-3.487-1.34-5.02zM12 3.66c2 0 3.772.64 5.32 1.919-.92 1.174-2.286 2.14-4.1 2.9-1.002-1.813-2.088-3.327-3.261-4.54A7.715 7.715 0 0 1 12 3.66zM5.51 6.8a8.116 8.116 0 0 1 2.711-2.22c1.212 1.201 2.325 2.7 3.34 4.5-2 .6-4.114.9-6.341.9-.573 0-1.006-.013-1.3-.04A8.549 8.549 0 0 1 5.51 6.8zM3.66 12c0-.054.003-.12.01-.2.007-.08.01-.146.01-.2.254.014.641.02 1.161.02 2.666 0 5.146-.367 7.439-1.1.187.373.381.793.58 1.26-1.32.293-2.674 1.006-4.061 2.14S6.4 16.247 5.76 17.5c-1.4-1.587-2.1-3.42-2.1-5.5zM12 20.34c-1.894 0-3.594-.587-5.101-1.759.601-1.187 1.524-2.322 2.771-3.401 1.246-1.08 2.483-1.753 3.71-2.02a29.441 29.441 0 0 1 1.56 6.62 8.166 8.166 0 0 1-2.94.56zm7.08-3.96a8.351 8.351 0 0 1-2.58 2.621c-.24-2.08-.7-4.107-1.379-6.081.932-.066 1.765-.1 2.5-.1.799 0 1.686.034 2.659.1a8.098 8.098 0 0 1-1.2 3.46zm-1.24-5c-1.16 0-2.233.047-3.22.14a27.053 27.053 0 0 0-.68-1.62c2.066-.906 3.532-2.006 4.399-3.3 1.2 1.414 1.854 3.027 1.96 4.84-.812-.04-1.632-.06-2.459-.06z"></path></svg>
-                                <span class="u-screen-reader-text">Dribbble</span>
-                                <!-- <strong>Phone:</strong> +91 9744043830<br>
-                                <strong>Email:</strong> <a href="mailto:anshadk556@gmail.com">anshadk556@gmail.com</a><br>
-                                <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohammedanshad/">Mohammed Anshad K</a><br>
-                                <strong>GitHub:</strong> <a href="https://github.com/mohammedanshad1">mohammedanshad1</a><br>
-                                <strong>Instagram:</strong> <a href="https://www.instagram.com/___anshad___/">___anshad___</a> -->
-                            </a>
-                        </li>
-                    </ul> <!-- end s-footer__social -->
-                </div>
-                <div class="column xl-6 lg-12">
-                    <p class="ss-copyright">
-                        <span>© Copyright Anshad 2024</span> 
-                        <span>Design by <a href="https://www.styleshout.com/">StyleShout</a> Distribution By <a href="https://themewagon.com">ThemeWagon</a></span>
-                    </p>
+                <!-- Strike User App -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-badge">Customer Booking App</span>
+                                <h3 class="project-title">Strike User App: Bowling & Venue Booking</h3>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            A customer-facing Flutter application designed for seamless bowling game bookings at venues, 
+                            featuring real-time availability and smooth slot-based scheduling for an enhanced user experience.
+                        </p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Real-time venue availability and slot booking system</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Match hosting and invitation management</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Integrated payment gateway for secure transactions</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Score tracking and user rating system</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Booking management and cancellation features</span>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Payment Gateway</span>
+                            <span class="tech-tag">Real-time Booking</span>
+                            <span class="tech-tag">GPS Integration</span>
+                            <span class="tech-tag">Rating System</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="ss-go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">&lt;!--!  Atomicons Free 1.00 by @atisalab License - https://atomicons.com/license/ (Icons: CC BY 4.0) Copyright 2021 Atomicons --&gt;<polyline points="17 11 12 6 7 11"></polyline><line x1="12" y1="18" x2="12" y2="6"></line></svg>
-                    </a>
-                </div> <!-- end ss-go-top -->
+                <!-- Thai Vision -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-badge">Business Management</span>
+                                <h3 class="project-title">Thai Vision: Business Management Application</h3>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            A comprehensive Flutter-based business management application designed to streamline sales 
+                            and operational activities with advanced tracking and monitoring capabilities.
+                        </p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Salesman activity tracking with GPS location services</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Attendance management system with geo-fencing</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Stock management and inventory tracking</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Admin dashboard for comprehensive business performance monitoring</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Real-time sales analytics and reporting</span>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">GPS Tracking</span>
+                            <span class="tech-tag">Analytics Dashboard</span>
+                            <span class="tech-tag">Offline Sync</span>
+                            <span class="tech-tag">SQL Database</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thai ARMS -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-badge">Fleet Management</span>
+                                <h3 class="project-title">Thai ARMS: Truck & Fleet Management</h3>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            An advanced fleet management application featuring event-driven architecture and real-time 
+                            GPS tracking for comprehensive truck and logistics management.
+                        </p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Real-time GPS tracking for fleet vehicles</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Event-driven architecture for instant updates</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Route optimization and delivery management</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Driver performance monitoring and analytics</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Maintenance scheduling and vehicle health tracking</span>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Real-time GPS</span>
+                            <span class="tech-tag">Event Architecture</span>
+                            <span class="tech-tag">Fleet Analytics</span>
+                            <span class="tech-tag">Route Optimization</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-        </footer> <!-- end s-footer -->
+        </div>
+    </section>
 
-    </div> <!-- end page-wrap -->
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="section-header">
+                <div class="section-pretitle">Get In Touch</div>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-description">
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision
+                </p>
+            </div>
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h4>Email</h4>
+                    <a href="mailto:anshadk556@gmail.com">anshadk556@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h4>Phone</h4>
+                    <a href="tel:+919744043830">+91 9744043830</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h4>Location</h4>
+                    <p>Tirur, Kerala, India</p>
+                </div>
+            </div>
 
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohammedanshad" class="social-link" title="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/mohammedanshad1" class="social-link" title="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/___anshad___/" class="social-link" title="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/anshad916" class="social-link" title="Twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Mohammed Anshad K. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with ❤️ using modern web technologies</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation to elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card, .contact-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
